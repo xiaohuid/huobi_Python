@@ -96,6 +96,14 @@ class RequestClient(object):
         """
         return call_sync(self.request_impl.get_market_trade(symbol))
 
+    def get_historical_trade(self, symbol: 'str', size: 'int' = 1) -> list:
+        """
+        Get the most recent trades with their price, volume and direction.
+        :param symbol: The symbol, like "btcusdt". (mandatory)
+        :param size: The number of historical trade requested, range [1 - 2000], default is 1 (optional)
+        :return: The list of trade.
+        """
+        return call_sync(self.request_impl.get_historical_trade(symbol, None, size))
 
     def get_ttsi(self, symbol: 'str', interval: 'CandlestickInterval') -> Ttsi:
         """
