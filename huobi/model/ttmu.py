@@ -1,4 +1,4 @@
-
+from datetime import datetime
 
 class Ttmu:
     """
@@ -27,6 +27,8 @@ class Ttmu:
 
     def print_object(self, format_data=""):
         from huobi.base.printobject import PrintBasic
+        t2 = self.timestamp / 1000
+        date_time = datetime.fromtimestamp(t2).strftime("%Y-%m-%d, %H:%M:%S")
         PrintBasic.print_basic(self.buy_ratio, format_data + "buy_ratio")
         PrintBasic.print_basic(self.sell_ratio, format_data + "sell_ratio")
-        PrintBasic.print_basic(self.timestamp, format_data + "Trade Time")
+        PrintBasic.print_basic(date_time, format_data + "Trade Time")
