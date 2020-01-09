@@ -210,6 +210,46 @@ class RestApiRequestImpl(object):
         request.json_parser = parse
         return request
 
+    def get_ttsi(self, symbol, interval):
+        builder = UrlParamsBuilder()
+        builder.put_url("symbol", symbol)
+        builder.put_url("period", interval)
+        request = self.__create_request_by_get("/api/v1/contract_elite_account_ratio", builder)
+
+        def parse(json_wrapper):
+            data_obj = json_wrapper.get_object("data")
+            list_array = data_obj.get_array("list")
+            ttsi_list = list()
+
+            for item in list_array.get_items():
+                ttsi = Ttsi.json_parse(item)
+                ttsi_list.append(ttsi)
+
+            return ttsi_list
+
+        request.json_parser = parse
+        return request
+
+    def get_ttmu(self, symbol, interval):
+        builder = UrlParamsBuilder()
+        builder.put_url("symbol", symbol)
+        builder.put_url("period", interval)
+        request = self.__create_request_by_get("/api/v1/contract_elite_position_ratio", builder)
+
+        def parse(json_wrapper):
+            data_obj = json_wrapper.get_object("data")
+            list_array = data_obj.get_array("list")
+            ttmu_list = list()
+
+            for item in list_array.get_items():
+                ttmu = Ttmu.json_parse(item)
+                ttmu_list.append(ttmu)
+
+            return ttmu_list
+
+        request.json_parser = parse
+        return request
+
     def get_best_quote(self, symbol):
         check_symbol(symbol)
         builder = UrlParamsBuilder()
