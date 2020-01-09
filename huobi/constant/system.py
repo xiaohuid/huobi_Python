@@ -1,6 +1,6 @@
 
 class WebSocketDefine:
-    Uri = "wss://www.btcgateway.pro/ws/"   # "wss://api.huobi.so/"  # "wss://api.huobi.vn/"  # "wss://api-aws.huobi.pro"
+    Uri = "wss://api.btcgateway.pro/notification"   # "wss://api.huobi.so/"  # "wss://api.huobi.vn/"  # "wss://api-aws.huobi.pro"
 class RestApiDefine:
     Url = "https://api.btcgateway.pro"  # "https://api.huobi.so"  # "https://api.huobi.vn"
 
