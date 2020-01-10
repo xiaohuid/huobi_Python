@@ -38,6 +38,7 @@ from huobi.model.crossmarginaccountbalance import CrossMarginAccountBalance
 from huobi.model.accounthistory import AccountHistory
 from huobi.model.ttsi import Ttsi
 from huobi.model.ttmu import Ttmu
+from huobi.model.position import Position
 from huobi.model.mbp import Mbp
 from huobi.model.mbpevent import MbpEvent
 from huobi.model.mbprequest import MbpRequest

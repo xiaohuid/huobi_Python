@@ -12,6 +12,11 @@ for symbol_row in symbol_list:
     for tt in range(len(trade_statistics)):
         print(trade_statistics[tt].print_object())
     print("---- Ttmu ----")
+
     ttmu2 = request_client.get_ttmu('BTC', '15min')
     for tt in range(len(ttmu2)):
         print(ttmu2[tt].print_object())
+
+    position2 = request_client.get_position('BTC', 'quarter','60min','48','1')
+    for cc in range(len(position2)):
+        print(position2[cc].print_object())

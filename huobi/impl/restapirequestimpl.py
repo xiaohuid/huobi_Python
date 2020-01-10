@@ -250,6 +250,29 @@ class RestApiRequestImpl(object):
         request.json_parser = parse
         return request
 
+    def get_position(self, symbol, contract_type, period,size,amount_type):
+        builder = UrlParamsBuilder()
+        builder.put_url("symbol", symbol)
+        builder.put_url("contract_type", contract_type)
+        builder.put_url("period", period)
+        builder.put_url("size", size)
+        builder.put_url("amount_type", amount_type)
+        request = self.__create_request_by_get("/api/v1/contract_his_open_interest", builder)
+
+        def parse(json_wrapper):
+            data_obj = json_wrapper.get_object("data")
+            position_array = data_obj.get_array("tick")
+            position_list = list()
+
+            for item in position_array.get_items():
+                postion = Position.json_parse(item)
+                position_list.append(postion)
+
+            return position_list
+
+        request.json_parser = parse
+        return request
+
     def get_best_quote(self, symbol):
         check_symbol(symbol)
         builder = UrlParamsBuilder()
