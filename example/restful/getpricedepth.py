@@ -2,7 +2,7 @@ from huobi import RequestClient
 
 
 request_client = RequestClient()
-depth = request_client.get_price_depth("btcusdt", 5)
+depth = request_client.get_price_depth("BTC_CQ", 150)
 print("---- Top 5 bids ----")
 i = 0
 for entry in depth.bids:
