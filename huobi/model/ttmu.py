@@ -32,3 +32,10 @@ class Ttmu:
         PrintBasic.print_basic(self.buy_ratio, format_data + "buy_ratio")
         PrintBasic.print_basic(self.sell_ratio, format_data + "sell_ratio")
         PrintBasic.print_basic(date_time, format_data + "Trade Time")
+
+    def to_str(self):
+        date_time = datetime.fromtimestamp(self.timestamp / 1000).strftime("%Y-%m-%d, %H:%M:%S")
+        aa = """ TTMU
+        Trade Time: {},buy_ratio: {} , sell_ratio: {}""".format(date_time,self.buy_ratio, self.sell_ratio)
+
+        return aa

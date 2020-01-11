@@ -30,3 +30,9 @@ class Position:
         date_time = datetime.fromtimestamp(t2).strftime("%Y-%m-%d, %H:%M:%S")
         PrintBasic.print_basic(self.volume, format_data + "Position")
         PrintBasic.print_basic(date_time, format_data + "Trade Time")
+
+    def to_str(self):
+        date_time = datetime.fromtimestamp(self.timestamp / 1000).strftime("%Y-%m-%d, %H:%M:%S")
+        aa = """ Position
+        Trade Time: {}, Position: {} """.format(date_time, self.volume)
+        return aa

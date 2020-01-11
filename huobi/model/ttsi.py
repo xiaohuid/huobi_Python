@@ -1,5 +1,6 @@
 from datetime import datetime
 
+
 class Ttsi:
     """
     The trade information with price and amount etc.
@@ -35,3 +36,9 @@ class Ttsi:
         PrintBasic.print_basic(self.sell_ratio, format_data + "sell_ratio")
         PrintBasic.print_basic(self.locked_ratio, format_data + "locked_ratio")
         PrintBasic.print_basic(date_time, format_data + "Trade Time")
+
+    def to_str(self):
+        date_time = datetime.fromtimestamp(self.timestamp / 1000).strftime("%Y-%m-%d, %H:%M:%S")
+        aa = """ TTSI
+        Trade Time: {},buy_ratio: {} , sell_ratio: {},  locked_ratio: {}""".format(date_time,self.buy_ratio, self.sell_ratio, self.locked_ratio )
+        return aa
