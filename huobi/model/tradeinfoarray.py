@@ -57,8 +57,9 @@ class TradeInfoArray:
         self.ttmu_sell_ratio[-1] = ttmu_list.sell_ratio
 
     def update_postion(self, position_list: list):
-        for cc in range(len(position_list)):
-            self.update_postion_array(position_list[cc])
+        new_lst = position_list[::-1]
+        for cc in range(len(new_lst)):
+            self.update_postion_array(new_lst[cc])
 
     def update_postion_array(self, ttmu_list):
 
