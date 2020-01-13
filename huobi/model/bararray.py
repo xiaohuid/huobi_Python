@@ -24,7 +24,6 @@ class BarArray(object):
         self.low_array = np.zeros(size)
         self.close_array = np.zeros(size)
         self.volume_array = np.zeros(size)
-        self.volume_array = np.zeros(size)
 
     def update_bar(self, bar: list):
         """
