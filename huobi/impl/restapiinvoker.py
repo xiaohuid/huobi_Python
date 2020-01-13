@@ -34,7 +34,7 @@ def check_response(json_wrapper):
 
 def call_sync(request):
     if request.method == "GET":
-        print(request.host + request.url)
+        #print(request.host + request.url)
         response = requests.get(request.host + request.url, headers=request.header)
         json_wrapper = parse_json_from_string(response.text)
         check_response(json_wrapper)
