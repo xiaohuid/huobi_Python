@@ -30,4 +30,4 @@ def error(e: 'HuobiApiException'):
     print(e.error_code + e.error_message)
 
 
-sub_client.subscribe_mbp_event("btcusdt", MbpLevel.MBP150, callback, error)
+sub_client.subscribe_mbp_event("BTC_CQ", MbpLevel.MBP150, callback, error)

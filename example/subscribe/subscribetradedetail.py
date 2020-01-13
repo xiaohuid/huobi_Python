@@ -18,4 +18,4 @@ def callback(trade_event: 'TradeEvent'):
 
 
 
-sub_client.subscribe_trade_event("btcusdt,eosusdt", callback)
+sub_client.subscribe_trade_event("BTC_CQ", callback)
