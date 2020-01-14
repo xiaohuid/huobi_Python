@@ -493,3 +493,15 @@ class BarArray(object):
         if array:
             return result
         return result[-1]
+
+    def to_str(self):
+        tt: str = """ Bar Array
+           self.id: {}, 
+           self.open: {},
+           self.high: {}, 
+           self.low: {}, 
+           self.close：{}, 
+           self.volume：{}
+           """.format(self.id_array[-1], self.open_array[-1], self.high_array[-1], self.low_array[-1],self.close_array[-1],
+                      self.volume_array[-1])
+        return tt

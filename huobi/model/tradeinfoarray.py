@@ -115,9 +115,29 @@ class TradeInfoArray:
             return self.boll_up_array, self.boll_up_cnt_array, self.boll_up_brk_cnt_array, self.boll_down_array, self.boll_down_cnt_array, self.boll_down_brk_cnt_array
         return self.boll_up, self.boll_up_cnt, self.boll_up_brk_cnt, self.boll_down, self.boll_down_cnt, self.boll_down_brk_cnt
 
-    def to_str(self):
+    def boll_to_str(self):
         tt: str = """ Boll Array
-        self.boll_up: {}, self.boll_up_cnt: {}, self.boll_up_brk_cnt: {}, self.boll_down: {}, self.boll_down_cnt：{}, self.boll_down_brk_cnt：{}
+        self.boll_up: {}, 
+        self.boll_up_cnt: {},
+        self.boll_up_brk_cnt: {}, 
+        self.boll_down: {}, 
+        self.boll_down_cnt：{}, 
+        self.boll_down_brk_cnt：{}
         """.format(self.boll_up, self.boll_up_cnt, self.boll_up_brk_cnt, self.boll_down, self.boll_down_cnt,
                    self.boll_down_brk_cnt)
         return tt
+
+    def trade_to_str(self):
+        tt: str = """ Trade Info 
+        TTSI: {}, Prior TTSI {}, diff :{}
+        TTMU: {}, Prior TTMU {}, diff : {}
+        Position: {} ,  Prior Position: {}, diff:{}
+        """.format(self.ttsi_buy_ratio[-1], self.ttsi_buy_ratio[-2], round(self.ttsi_buy_ratio[-1]-self.ttsi_buy_ratio[-2],2), self.ttmu_buy_ratio[-2],self.ttmu_buy_ratio[-2],round(self.ttmu_buy_ratio[-1]-self.ttmu_buy_ratio[-2],3),
+                   self.market_position[-1],self.market_position[-2],self.market_position[-1]-self.market_position[-2])
+        return tt
+
+    def update_all(self, ttsi, ttmu, position, candlestick_list_1, am_1):
+        self.update_ttmu(ttmu)
+        self.update_ttsi(ttsi)
+        self.update_postion(position)
+        self.update_boll_array(candlestick_list_1, am_1)
